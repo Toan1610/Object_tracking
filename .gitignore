@@ -48,3 +48,6 @@ node_modules/
 # Task files
 # tasks.json
 # tasks/ 
+
+models\*.pth 
+models\*.pt 
