@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        HTTP_PROXY: http://10.61.11.42:3128
+        http_proxy: http://10.61.11.42:3128
+        HTTPS_PROXY: http://10.61.11.42:3128
+        https_proxy: http://10.61.11.42:3128
+        NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+    ports:
+      - "3000:3000"
+    environment:
+      - HTTP_PROXY=http://10.61.11.42:3128
+      - http_proxy=http://10.61.11.42:3128
+      - HTTPS_PROXY=http://10.61.11.42:3128
+      - https_proxy=http://10.61.11.42:3128
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+      - FASTAPI_URL=${FASTAPI_URL}
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./inference-api
+      dockerfile: Dockerfile
+      args:
+        HTTP_PROXY: http://10.61.11.42:3128
+        http_proxy: http://10.61.11.42:3128
+        HTTPS_PROXY: http://10.61.11.42:3128
+        https_proxy: http://10.61.11.42:3128
+    ports:
+      - "8000:8000"
+    environment:
+      - HTTP_PROXY=http://10.61.11.42:3128
+      - http_proxy=http://10.61.11.42:3128
+      - HTTPS_PROXY=http://10.61.11.42:3128
+      - https_proxy=http://10.61.11.42:3128
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+      - FASTAPI_URL=${FASTAPI_URL}
+    volumes:
+      - ./models:/app/models
+      - ./static:/app/static
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge 

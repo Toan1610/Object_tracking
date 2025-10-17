@@ -1,0 +1,11 @@
+# Task ID: 12
+# Title: Implement Model Comparison Features
+# Status: pending
+# Dependencies: 3 (Not found), 5 (Not found)
+# Priority: low
+# Description: Add functionality to compare results from different AI models
+# Details:
+Create comparison tools to analyze results from YOLO, SAM, and Mask R-CNN models side by side.
+
+# Test Strategy:
+Test model comparison accuracy, UI usability, and result interpretation clarity.

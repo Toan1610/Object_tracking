@@ -1,0 +1,11 @@
+# Task ID: 11
+# Title: Add Theme Support and Responsive Design
+# Status: pending
+# Dependencies: 4 (Not found), 5 (Not found), 6 (Not found)
+# Priority: low
+# Description: Implement dark/light theme support and ensure responsive design across all devices
+# Details:
+Add theme switching functionality, ensure mobile responsiveness, and optimize UI for different screen sizes.
+
+# Test Strategy:
+Test theme switching, responsive design across devices, and accessibility compliance.

@@ -1,0 +1,11 @@
+# Task ID: 3
+# Title: Integrate AI Model Inference API
+# Status: pending
+# Dependencies: 2 (Not found)
+# Priority: high
+# Description: Connect frontend to the FastAPI inference service for AI model predictions
+# Details:
+Implement API client to communicate with the inference service. Handle model selection, file upload to API, and result processing.
+
+# Test Strategy:
+Test API communication, model selection, and result handling. Verify error scenarios and timeout handling.
